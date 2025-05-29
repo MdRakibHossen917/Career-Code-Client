@@ -2,9 +2,10 @@ import React, { use, useState } from "react";
 import signInLottieFile from "../../assets/SignIn.json";
 import Lottie from "lottie-react";
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
+import SocialLogIn from "../Shared/SocialLogIn";
 
 const SignIn = () => {
-  const { signInUser } = use(AuthContext);
+  const { signInUser,setLoading } = use(AuthContext);
   const [errorMessage,setErrorMessage]=useState()
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -63,6 +64,7 @@ const SignIn = () => {
                 <button className="btn btn-neutral mt-4">Register</button>
               </fieldset>
             </form>
+            <SocialLogIn></SocialLogIn>
           </div>
         </div>
       </div>

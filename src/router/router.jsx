@@ -15,6 +15,18 @@ const router = createBrowserRouter([
         Component: Home,
       },
       {
+        path: "/findJob",
+        // Component: Register,
+      },
+      {
+        path: "/recruiters",
+        // Component: Register,
+      },
+      {
+        path: "/candidates",
+        // Component: Register,
+      },
+      {
         path: "/register",
         Component: Register,
       },
