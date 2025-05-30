@@ -1,7 +1,8 @@
 import React from "react";
-import { motion } from "framer-motion";  
 import team1 from "../../assets/team/smiling-colleagues-office-talking .jpg";
 import team2 from "../../assets/team/that-s-how-success-looks.jpg";
+// eslint-disable-next-line no-unused-vars
+import { motion } from "motion/react";
 
 const Banner = () => {
   return (

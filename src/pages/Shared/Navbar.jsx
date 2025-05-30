@@ -3,17 +3,18 @@ import { NavLink } from "react-router";
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 
 const Navbar = () => {
+  //User signIn or SignOut check  korte use(AuthContext) 
   const { user, signOutUser } = use(AuthContext);
 
-  const handleSignOut=()=>{
+  const handleSignOut = () => {
     signOutUser()
-      .then(( ) => {
-       console.log('user Sign Out');
+      .then(() => {
+        console.log("user Sign Out");
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
       });
-  }
+  };
   const links = (
     <>
       <li>
@@ -43,13 +44,13 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              {" "}
+             
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
+              />
             </svg>
           </div>
           <ul
