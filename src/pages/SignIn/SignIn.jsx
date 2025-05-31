@@ -3,9 +3,16 @@ import signInLottieFile from "../../assets/SignIn.json";
 import Lottie from "lottie-react";
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 import SocialLogIn from "../Shared/SocialLogIn";
+import { useLocation, useNavigate } from "react-router";
 
 const SignIn = () => {
   const { signInUser,setLoading } = use(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state || '/';
+  console.log('Location in sign in page',location)
+
   const [errorMessage,setErrorMessage]=useState()
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -20,7 +27,8 @@ const SignIn = () => {
     signInUser(email, password)
       .then((result) => {
         console.log(result.user);
-        alert("login successful");
+        navigate(from)
+        // alert("login successful");
       })
       .catch((error) => {
         console.log(error.message);
@@ -64,7 +72,8 @@ const SignIn = () => {
                 <button className="btn btn-neutral mt-4">Register</button>
               </fieldset>
             </form>
-            <SocialLogIn></SocialLogIn>
+            {/*from kon jayga theke eseche seta k props kore pathacchi */}
+            <SocialLogIn from={from}></SocialLogIn>
           </div>
         </div>
       </div>

@@ -1,11 +1,17 @@
-import React from 'react';
+import React from "react";
+import { useParams } from "react-router";
+import useAuth from "../../hooks/useAuth";
 
 const JobApply = () => {
-    return (
-        <div>
-            <h3 className="text-4xl">Apply Job for</h3>
-        </div>
-    );
+  const { id: jobId } = useParams();
+  //Custom hooks useAuth
+  const { user } = useAuth();
+  console.log(jobId, user);
+  return (
+    <div>
+      <h3 className="text-4xl">Apply Job for</h3>
+    </div>
+  );
 };
 
 export default JobApply;
