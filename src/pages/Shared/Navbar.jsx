@@ -3,7 +3,7 @@ import { NavLink } from "react-router";
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 
 const Navbar = () => {
-  //User signIn or SignOut check  korte use(AuthContext) 
+  //User signIn or SignOut check  korte use(AuthContext)
   const { user, signOutUser } = use(AuthContext);
 
   const handleSignOut = () => {
@@ -20,16 +20,12 @@ const Navbar = () => {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
-        <NavLink to="/findJob">Find a Job</NavLink>
-      </li>
-      <li>
-        <NavLink to="/recruiters">Recruiters</NavLink>
-      </li>
 
-      <li>
-        <NavLink to="/candidates">Candidates</NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink to="/myApplications">My Applications</NavLink>
+        </li>
+      )}
     </>
   );
   return (
@@ -44,7 +40,6 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-             
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
