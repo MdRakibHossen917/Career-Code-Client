@@ -1,10 +1,11 @@
 import React from "react";
-import { Link, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
 
 const JobApply = () => {
+  const navigate = useNavigate()
     //jobId is Id
   const { id: jobId } = useParams();
   //Custom hooks useAuth
@@ -39,6 +40,8 @@ const JobApply = () => {
             timer: 1500,
           });
           form.reset();
+          navigate('/myApplications')
+
 
         }
         

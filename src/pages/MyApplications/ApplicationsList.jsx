@@ -1,12 +1,20 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import JobApplicationsRow from "./JobApplicationsRow";
 
 const ApplicationsList = ({ myApplicationsPromise }) => {
-  const applications = use(myApplicationsPromise);
+  const loadedApplications = use(myApplicationsPromise);
+  const [applications, setApplications] = useState(loadedApplications);
+
+  //This function will be called if delete is successful.
+  const handleDeleteSuccess = (id) => {
+    const filtered = applications.filter((app) => app._id !== id);
+    setApplications(filtered);
+  };
+
   return (
     <div>
       <h2 className="text-3xl">
-        Job applications so far:{applications.length}
+        Job applications so far: {applications.length}
       </h2>
 
       <div className="overflow-x-auto">
@@ -31,7 +39,8 @@ const ApplicationsList = ({ myApplicationsPromise }) => {
                 key={application._id}
                 index={index}
                 application={application}
-              ></JobApplicationsRow>
+                onDeleteSuccess={handleDeleteSuccess}
+              />
             ))}
           </tbody>
         </table>
